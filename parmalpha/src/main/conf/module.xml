@@ -10,10 +10,6 @@
                 <Icon path="res/icons/Stereotype1_16.png"/>
                 <Image path="res/icons/Stereotype1_48.png"/>
             </Stereotype>
-            <Stereotype name="stereotype2" metaclass="ClassDiagram" is-hidden="false" label="Stereotype 2" uid="6f8f87a0-92b8-407c-b493-a21777bd4bc8">
-                <Icon path="res/icons/Stereotype2_16.png"/>
-                <Image path="res/icons/Stereotype2_16.png"/>
-            </Stereotype>
             <MetaclassReference uid="aa3502ff-f5e4-4746-9a11-bfedda0dbe2c" metaclass="ModelElement">
                 <TagTypes>
                     <TagType name="TagName" uid="88ead639-2fc4-4dcf-bd3e-a143346709e0" label="Name" parameter-card="1" is-hidden="false" is-signed="false"/>
@@ -27,46 +23,17 @@
                 <Scope metaclass="ModelTree"/>
                 <Handler class="org.modelio.parmalpha.command.HelloWorldCommand"/>
             </Command>
-            <Command id="CreateElementCommandExample" label="%CreateElementCommandExampleLabel" tooltip="%CreateElementCommandExampleTooltip" image="res/icons/Stereotype1_16.png" group="" modify-model="true" group-image="">
+            <Command id="SetVisibilityCommand" label="%SetVisibilityCommandLabel" tooltip="%SetVisibilityCommandTooltip" image="res/icons/HelloWorldCommand_16.png" group="" modify-model="true" group-image="">
                 <Scope metaclass="ModelTree"/>
-                <Handler class="ElementCreate">
-                    <HParameter name="name" value="%CreateElementCommandExampleName"/>
-                    <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="stereotype1"/>
-                </Handler>
-            </Command>
-            <Command id="CreateDiagramCommandExample" label="%CreateDiagramCommandExampleLabel" tooltip="%CreateDiagramCommandExampleTooltip" image="res/icons/Stereotype2_16.png" group="" modify-model="true" group-image="">
-                <Scope metaclass="ModelTree"/>
-                <Handler class="DiagramCreate">
-                    <HParameter name="name" value="%CreateDiagramCommandExampleName"/>
-                    <HParameter name="metaclass" value="ClassDiagram"/>
-                    <HParameter name="stereotype" value="stereotype2"/>
-                </Handler>
+                <Handler class="org.modelio.parmalpha.command.SetVisibilityCommand"/>
             </Command>
         </Commands>
-        <Tools>
-            <Tool id="CreateElementDiagramCommandExample" label="%CreateElementDiagramCommandExampleLabel" tooltip="%CreateElementDiagramCommandExampleTooltip" image="res/icons/Stereotype1_16.png">
-                <Scope-source metaclass="ModelTree"/>
-                <Handler class="Box">
-                    <HParameter name="name" value="%CreateElementDiagramCommandExampleName"/>
-                    <HParameter name="metaclass" value="Class"/>
-                    <HParameter name="stereotype" value="stereotype1"/>
-                </Handler>
-            </Tool>
-        </Tools>
+        <Tools/>
         <ContextualMenu>
             <CommandRef refid="HelloWorldCommand"/>
-            <CommandRef refid="CreateElementCommandExample"/>
-            <CommandRef refid="CreateDiagramCommandExample"/>
+            <CommandRef refid="SetVisibilityCommand"/>
         </ContextualMenu>
-        <Diagrams>
-            <DiagramType base-diagram="ClassDiagram" stereotype="stereotype2">
-                <Palette keepBasePalette="false">
-                    <ToolRef refid="CreateElementDiagramCommandExample" group="Customization"/>
-                </Palette>
-                <Handler class="StandardCustomizer"/>
-            </DiagramType>
-        </Diagrams>
+        <Diagrams/>
         <Views/>
     </Gui>
     <Dependencies/>
